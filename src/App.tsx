@@ -3,9 +3,14 @@ import Cita from "./features/quote/Cita";
 import "./App.css";
 import Bio from "./features/bio/Bio";
 import Noticias from "./features/news/Noticias";
+import useNoticiasNormalizadas from "./Hooks/useNoticiasNormalizadas";
+import AppContext from "./Context/AppContext";
 
 function App() {
+
+  const NoticiasNormalizadas = useNoticiasNormalizadas();
   return (
+    <AppContext.Provider value={NoticiasNormalizadas}>
     <div className="App">
       <header className="App-header">
         <img
@@ -22,6 +27,7 @@ function App() {
         <Noticias />
       </section>
     </div>
+    </AppContext.Provider>
   );
 }
 
