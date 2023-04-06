@@ -1,14 +1,14 @@
 import Cita from '../features/quote/Cita';
 import {fireEvent, render, screen} from '../test-utils';
 
-describe('Prueba para nombre invalido', () => {
-    test('Al ingresar un nombre invalido sale el mensaje para corregirlo', async () => {
+describe('Prueba para comprobar la CARGA', () => {
+    test('Se ingresa un nombre y aparece el CARGANDO...',() => {
         render(<Cita/>)
         const input = screen.getByPlaceholderText('Ingresa el nombre del autor');
-        fireEvent.change(input, {target:{value:'NSFS'}});
+        fireEvent.change(input, {target:{value:'Duffman'}});
         const button = screen.getByRole('button', {name: 'Obtener Cita'});
         fireEvent.click(button); 
-        expect(await screen.findByText('CARGANDO...')).toBeInTheDocument();
+        expect(screen.getByText('CARGANDO...')).toBeInTheDocument();
     })
 })
 

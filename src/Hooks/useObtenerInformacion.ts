@@ -40,6 +40,7 @@ export const useObtenerInformacion = () => {
     
         obtenerInformacion();
       }, []);
+      
   return {noticias, setNoticias};
 }
 
